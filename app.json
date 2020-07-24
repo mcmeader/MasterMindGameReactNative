@@ -1,0 +1,18 @@
+{
+  "name": "MastermindGameReactNative",
+  "displayName": "MastermindGameReactNative",
+  "orientation": "portrait",
+  "expo": {
+    "name": "MastermindGameReactNative",
+    "version": "1.0.0",
+    "platforms": [
+      "web",
+      "android",
+      "ios"
+    ],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "description": ""
+  }
+}
