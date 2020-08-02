@@ -14,37 +14,43 @@ import { SolutionContainer } from '../components/GameScreen/Containers/SolutionC
 import { PoolContainer } from '../components/GameScreen/Containers/PoolContainer.js';
 import { FlatListContainer } from '../components/GameScreen/Containers/FlatListContainer.js';
 
-const sampleData = [
-    {
-        round: 1,
-        data: {
-            guesses: ("red", "yellow", "blue", "green"),
-            check: ("black", "white", "blank", "black")
-        }
-    },
-    {
-        round: 2,
-        data: {
-            guesses: ("white", "yellow", "blue", "green"),
-            check: ("black", "blank", "blank", "black")
-        }
-    },
-]
-
 export default function GameScreen({ difficulty }) {
     return (
         // <SafeAreaView>
         <View style={styles.screen}>
             <View style={styles.topSection}>
                 <MenuButton />
-                <SolutionContainer />
+                <SolutionContainer solution={[{
+                    position: 1,
+                    color: "yellow"
+                }, {
+                    position: 2,
+                    color: "blue"
+                }, {
+                    position: 3,
+                    color: "white"
+                }, {
+                    position: 4,
+                    color: "black"
+                },
+                {
+                    position: 5,
+                    color: "grey"
+                }, {
+                    position: 6,
+                    color: "pink"
+                }, {
+                    position: 7,
+                    color: "green"
+                }
+                ]} hidden={true} />
             </View>
             <View style={styles.midSection}>
-                <FlatList
+                {/* <FlatList
                     data={sampleData.data}
                     key={sampleData.round}
                     renderItem={({ item }) => (<FlatListContainer />)}
-                />
+                /> */}
             </View>
             <View style={styles.bottomSection}>
                 <PoolContainer />
