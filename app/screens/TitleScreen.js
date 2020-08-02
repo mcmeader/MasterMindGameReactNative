@@ -8,7 +8,7 @@ import {
     SafeAreaView
 } from 'react-native';
 
-import { TitleScreenOptionButton } from '../components/TitleScreenOptionButton.js'
+import { TitleScreenOptionButton } from '../components/TitleScreen/TitleScreenOptionButton.js'
 
 export default function TitleScreen() {
     return (
