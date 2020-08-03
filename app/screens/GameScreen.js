@@ -32,25 +32,13 @@ export default function GameScreen({ difficulty }) {
                 }, {
                     position: 4,
                     color: "black"
-                },
-                {
+                }, {
                     position: 5,
                     color: "grey"
-                }, {
-                    position: 6,
-                    color: "pink"
-                }, {
-                    position: 7,
-                    color: "green"
                 }
-                ]} hidden={true} />
+                ]} hidden={false} />
             </View>
             <View style={styles.midSection}>
-                {/* <FlatList
-                    data={sampleData.data}
-                    key={sampleData.round}
-                    renderItem={({ item }) => (<FlatListContainer />)}
-                /> */}
             </View>
             <View style={styles.bottomSection}>
                 <PoolContainer />
@@ -73,7 +61,7 @@ const styles = StyleSheet.create({
     topSection: {
         flex: 0.6,
         flexDirection: 'row',
-        alignContent: 'center',
+        justifyContent: 'center',
         backgroundColor: 'red',
     },
     midSection: {
