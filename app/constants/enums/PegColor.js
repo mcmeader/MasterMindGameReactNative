@@ -1,11 +1,11 @@
-export const EasyDifficultyPegColor = [
+const EasyDifficultyPegColor = [
     "red",
     "yellow",
     "blue",
     "green",
 ]
 
-export const NormalDifficultyPegColor = [
+const NormalDifficultyPegColor = [
     "red",
     "yellow",
     "blue",
@@ -14,7 +14,7 @@ export const NormalDifficultyPegColor = [
     "white",
 ]
 
-export const HardDifficultyPegColor = [
+const HardDifficultyPegColor = [
     "red",
     "yellow",
     "blue",
@@ -25,7 +25,7 @@ export const HardDifficultyPegColor = [
     "orange",
 ]
 
-export const NightmareDifficultyPegColor = [
+const NightmareDifficultyPegColor = [
     "red",
     "yellow",
     "blue",
@@ -38,7 +38,7 @@ export const NightmareDifficultyPegColor = [
     "brown",
 ]
 
-export const ImpossibleDifficultyPegColor = [
+const ImpossibleDifficultyPegColor = [
     "red",
     "yellow",
     "blue",
@@ -52,3 +52,5 @@ export const ImpossibleDifficultyPegColor = [
     "gold",
     "silver"
 ]
+
+export { EasyDifficultyPegColor, NormalDifficultyPegColor, HardDifficultyPegColor, NightmareDifficultyPegColor, ImpossibleDifficultyPegColor }

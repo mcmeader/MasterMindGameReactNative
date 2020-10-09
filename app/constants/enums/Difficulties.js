@@ -1,6 +1,6 @@
 import * as colors from './PegColor';
 
-export const Difficulties = {
+const Difficulties = {
     "easy": {
         "numberOfPegs": 3,
         "colors": colors.EasyDifficultyPegColor,
@@ -27,3 +27,5 @@ export const Difficulties = {
         "maxGuesses": 8,
     }
 }
+
+export default Difficulties

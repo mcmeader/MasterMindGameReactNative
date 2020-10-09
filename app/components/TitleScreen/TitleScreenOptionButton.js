@@ -1,14 +1,13 @@
-'use-strict';
-
 import React from 'react';
+import PropTypes from 'prop-types'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
-export function TitleScreenOptionButton({ "text": text, "buttonFunction": buttonFunction }) {
+const TitleScreenOptionButton = (props) => {
     return (
         <View style={styles.buttonContainer}>
-            <TouchableOpacity onPress={() => console.log(text)}>
+            <TouchableOpacity onPress={() => console.log(props.text)}>
                 <Text style={styles.text}>
-                    {text}
+                    {props.text}
                 </Text>
             </TouchableOpacity>
         </View>
@@ -30,3 +29,10 @@ const styles = StyleSheet.create({
         fontSize: 20,
     }
 });
+
+TitleScreenOptionButton.propTypes = {
+    text: PropTypes.string,
+    buttonFunction: PropTypes.func,
+}
+
+export default TitleScreenOptionButton

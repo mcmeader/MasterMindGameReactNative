@@ -1,12 +1,11 @@
-'use-strict';
-
 import React from 'react';
+import PropTypes from 'prop-types';
 import { View, StyleSheet } from 'react-native';
 
-export function GuessPeg({ pegColor }) {
+const GuessPeg = (props) => {
     return (
         <View style={styles.buttonContainer}>
-            <View style={{ flex: 1, backgroundColor: pegColor, borderRadius: 100, }} />
+            <View style={{ flex: 1, backgroundColor: props.pegColor, borderRadius: 100, }} />
         </View>
     );
 }
@@ -19,3 +18,9 @@ const styles = StyleSheet.create({
         margin: 5,
     },
 });
+
+GuessPeg.propTypes = {
+    pegColor: PropTypes.object
+}
+
+export default GuessPeg

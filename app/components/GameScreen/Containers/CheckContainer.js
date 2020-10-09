@@ -1,9 +1,7 @@
-'use-strict';
-
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 
-export function CheckContainer() {
+const CheckContainer = () => {
     return (
         <View style={styles.container}>
         </View>
@@ -19,3 +17,5 @@ const styles = StyleSheet.create({
         backgroundColor: "black",
     },
 });
+
+export default CheckContainer

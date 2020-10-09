@@ -1,5 +1,7 @@
-export const GuessPegColor = [
+const GuessPegColor = [
     "black",
     "white",
     "empty",
 ]
+
+export default GuessPegColor

@@ -1,5 +1,3 @@
-'use-strict';
-
 import React from 'react';
 import {
     StyleSheet,
@@ -10,7 +8,7 @@ import {
 
 import { TitleScreenOptionButton } from '../components/TitleScreen/TitleScreenOptionButton.js'
 
-export default function TitleScreen() {
+const TitleScreen = () => {
     return (
         // <SafeAreaView>
         <View style={styles.screen}>
@@ -45,3 +43,5 @@ const styles = StyleSheet.create({
         textAlignVertical: 'center',
     }
 });
+
+export default TitleScreen

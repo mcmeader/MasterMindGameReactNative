@@ -1,5 +1,3 @@
-'use-strict';
-
 import React from 'react';
 import {
     StyleSheet,
@@ -7,6 +5,7 @@ import {
     FlatList,
     SafeAreaView
 } from 'react-native';
+import PropTypes from 'prop-types'
 
 import { MenuButton } from '../components/GameScreen/Buttons/MenuButton.js';
 import { UserActionButton } from '../components/GameScreen/Buttons/UserActionButton.js';
@@ -14,7 +13,7 @@ import { SolutionContainer } from '../components/GameScreen/Containers/SolutionC
 import { PoolContainer } from '../components/GameScreen/Containers/PoolContainer.js';
 import { FlatListContainer } from '../components/GameScreen/Containers/FlatListContainer.js';
 
-export default function GameScreen({ difficulty }) {
+const GameScreen = (props) => {
     return (
         // <SafeAreaView>
         <View style={styles.screen}>
@@ -82,3 +81,9 @@ const styles = StyleSheet.create({
         backgroundColor: 'red',
     }
 });
+
+GameScreen.propTypes = {
+    difficulty: PropTypes.object
+}
+
+export default GameScreen

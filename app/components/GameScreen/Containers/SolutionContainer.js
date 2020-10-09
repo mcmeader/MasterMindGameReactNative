@@ -1,13 +1,12 @@
-'use-strict';
-
 import React from 'react';
+import PropTypes from 'prop-types';
 import { View, StyleSheet } from 'react-native';
 
-export function SolutionContainer({ solution, hidden }) {
+const SolutionContainer = (props) => {
     return (
         <View style={styles.container}>
-            {hidden ? <View style={{ flex: 1, alignSelf: 'stretch', backgroundColor: "black" }} /> :
-                solution.map(peg => <View style={{ borderRadius: 100, height: 30, width: 30, backgroundColor: peg.color, }} key={peg.position} />)}
+            {props.hidden ? <View style={{ flex: 1, alignSelf: 'stretch', backgroundColor: "black" }} /> :
+                props.solution.map(peg => <View style={{ borderRadius: 100, height: 30, width: 30, backgroundColor: peg.color, }} key={peg.position} />)}
         </View>
     );
 }
@@ -25,3 +24,10 @@ const styles = StyleSheet.create({
         backgroundColor: 'black',
     }
 });
+
+SolutionContainer.propTypes = {
+    solution: PropTypes.object,
+    hidden: PropTypes.bool
+}
+
+export default SolutionContainer

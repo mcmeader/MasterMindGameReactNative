@@ -1,9 +1,7 @@
-'use-strict';
-
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 
-export function PoolContainer() {
+const PoolContainer = () => {
     return (
         <View style={styles.container}>
         </View>
@@ -19,3 +17,5 @@ const styles = StyleSheet.create({
         backgroundColor: "black",
     },
 });
+
+export default PoolContainer

@@ -1,9 +1,7 @@
-'use-strict';
-
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 
-export function GuessContainer() {
+const GuessContainer = () => {
     return (
         <View style={styles.container}>
         </View>
@@ -19,3 +17,5 @@ const styles = StyleSheet.create({
         backgroundColor: "white",
     },
 });
+
+export default GuessContainer
