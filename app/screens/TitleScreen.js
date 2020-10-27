@@ -1,3 +1,5 @@
+'use-strict';
+
 import React from 'react';
 import {
     StyleSheet,
@@ -6,9 +8,9 @@ import {
     SafeAreaView
 } from 'react-native';
 
-import { TitleScreenOptionButton } from '../components/TitleScreen/TitleScreenOptionButton.js'
+import { TitleScreenOptionButton } from '../components/TitleScreenOptionButton.js'
 
-const TitleScreen = () => {
+export default function TitleScreen() {
     return (
         // <SafeAreaView>
         <View style={styles.screen}>
@@ -43,5 +45,3 @@ const styles = StyleSheet.create({
         textAlignVertical: 'center',
     }
 });
-
-export default TitleScreen

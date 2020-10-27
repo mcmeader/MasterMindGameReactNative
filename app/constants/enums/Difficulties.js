@@ -1,31 +1,35 @@
-import * as colors from './PegColor';
+import { EasyDifficultyPegColor, HardDifficultyPegColor, ImpossibleDifficultyPegColor, NightmareDifficultyPegColor, NormalDifficultyPegColor } from "./PegColor"
 
 const Difficulties = {
     "easy": {
         "numberOfPegs": 3,
-        "colors": colors.EasyDifficultyPegColor,
+        "colors": EasyDifficultyPegColor,
         "maxGuesses": 0,
     },
     "normal": {
         "numberOfPegs": 4,
-        "colors": colors.NormalDifficultyPegColor,
+        "colors": NormalDifficultyPegColor,
         "maxGuesses": 10,
     },
     "hard": {
         "numberOfPegs": 5,
-        "colors": colors.HardDifficultyPegColor,
+        "colors": HardDifficultyPegColor,
         "maxGuesses": 12,
     },
     "nightmare": {
         "numberOfPegs": 6,
-        "colors": colors.NightmareDifficultyPegColor,
+        "colors": NightmareDifficultyPegColor,
         "maxGuesses": 10,
     },
     "impossible": {
         "numberOfPegs": 8,
-        "colors": colors.ImpossibleDifficultyPegColor,
+        "colors": ImpossibleDifficultyPegColor,
         "maxGuesses": 8,
     }
 }
 
-export default Difficulties
+const getDifficulties = () => {
+    return [Difficulties.easy, Difficulties.normal, Difficulties.hard, Difficulties.nightmare, Difficulties.impossible]
+}
+
+export { Difficulties, getDifficulties }

@@ -1,7 +1,7 @@
-const GuessPegColor = [
-    "black",
-    "white",
-    "empty",
-]
+const GuessPegColor = {
+    BLACK: "black",
+    WHITE: "white",
+    EMPTY: "zz",
+}
 
 export default GuessPegColor
