@@ -1,21 +1,27 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import PropTypes from 'prop-types';
+import { View, Button, StyleSheet } from 'react-native';
 
-const MenuButton = () => {
+const MenuButton = (props) => {
     return (
-        <View style={styles.buttonContainer}>
+        <View style={styles.buttonContainer} >
+            <Button title="Menu" onPress={() => props.clickAction()} />
         </View>
     );
 }
 
 const styles = StyleSheet.create({
     buttonContainer: {
-        flex: 1,
-        alignContent: 'center',
+        flex: 1.5,
+        alignContent: 'stretch',
         alignItems: 'stretch',
-        margin: 5,
-        backgroundColor: "black",
+        padding: 10,
+        marginTop: 5,
     },
 });
+
+MenuButton.propTypes = {
+    clickAction: PropTypes.func,
+}
 
 export default MenuButton

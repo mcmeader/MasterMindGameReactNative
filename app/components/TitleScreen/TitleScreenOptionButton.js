@@ -5,7 +5,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 const TitleScreenOptionButton = (props) => {
     return (
         <View style={styles.buttonContainer}>
-            <TouchableOpacity onPress={() => console.log(props.text)}>
+            <TouchableOpacity onPress={() => props.buttonFunction()}>
                 <Text style={styles.text}>
                     {props.text}
                 </Text>

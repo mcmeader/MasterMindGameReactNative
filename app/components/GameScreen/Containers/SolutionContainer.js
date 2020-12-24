@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { View, StyleSheet } from 'react-native';
+import StaticColorPeg from '../Pegs/StaticColorPeg';
 
 const SolutionContainer = (props) => {
     return (
         <View style={styles.container}>
             {props.hidden ? <View style={{ flex: 1, alignSelf: 'stretch', backgroundColor: "black" }} /> :
-                props.solution.map(peg => <View style={{ borderRadius: 100, height: 30, width: 30, backgroundColor: peg.color, }} key={peg.position} />)}
+                props.sol.map((peg, index) => <StaticColorPeg key={index} pegColor={peg} />)}
         </View>
     );
 }
@@ -26,7 +27,7 @@ const styles = StyleSheet.create({
 });
 
 SolutionContainer.propTypes = {
-    solution: PropTypes.object,
+    sol: PropTypes.arrayOf(String),
     hidden: PropTypes.bool
 }
 

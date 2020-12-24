@@ -1,30 +1,44 @@
-'use-strict';
-
-import React from 'react';
+import React, { useState } from 'react';
 import {
     StyleSheet,
     View,
-    Text,
-    SafeAreaView
+    Text
 } from 'react-native';
 
-import { TitleScreenOptionButton } from '../components/TitleScreenOptionButton.js'
+import TitleScreenOptionButton from '../components/TitleScreen/TitleScreenOptionButton.js'
+import { getDifficulties } from '../constants/enums/Difficulties.js';
 
-export default function TitleScreen() {
+const TitleScreen = ({ navigation }) => {
+    let difficulties = getDifficulties()
+    const [gameDifficultyIndex, setgameDifficultyIndex] = useState(1)
+
+    let updateDifficulty = () => {
+        if (gameDifficultyIndex === difficulties.length - 1) {
+            setgameDifficultyIndex(0)
+        } else {
+            setgameDifficultyIndex(gameDifficultyIndex + 1)
+        }
+    }
+
+    let startGame = () => {
+        navigation.push("Game Screen", { difficulty: difficulties[gameDifficultyIndex], navigate: navigation })
+    }
+
+    let placeholder = () => { }
+
     return (
-        // <SafeAreaView>
         <View style={styles.screen}>
             <View style={styles.content}>
                 <Text style={styles.mastermindLogo}>
                     Mastermind
                 </Text>
-                <TitleScreenOptionButton text="Start Game" buttonFunction={() => null} />
-                <TitleScreenOptionButton text="Difficulty" buttonFunction={() => null} />
-                <TitleScreenOptionButton text="High Score" buttonFunction={() => null} />
-                <TitleScreenOptionButton text="Settings" buttonFunction={() => null} />
+                <TitleScreenOptionButton text="Start Game" buttonFunction={startGame} />
+                <TitleScreenOptionButton text={'Difficulty: ' + difficulties[gameDifficultyIndex].difficulty}
+                    buttonFunction={updateDifficulty} />
+                <TitleScreenOptionButton text="High Score" buttonFunction={placeholder} />
+                <TitleScreenOptionButton text="Settings" buttonFunction={placeholder} />
             </View>
         </View>
-        // </SafeAreaView>
     );
 }
 
@@ -45,3 +59,5 @@ const styles = StyleSheet.create({
         textAlignVertical: 'center',
     }
 });
+
+export default TitleScreen

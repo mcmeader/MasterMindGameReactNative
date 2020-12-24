@@ -1,9 +1,11 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import PropTypes from 'prop-types';
+import { View, StyleSheet, Button } from 'react-native';
 
-const UserActionButton = () => {
+const UserActionButton = (props) => {
     return (
-        <View style={styles.buttonContainer}>
+        <View style={styles.buttonContainer} >
+            <Button title={props.buttonText} onPress={() => props.clickAction()} />
         </View>
     );
 }
@@ -11,11 +13,13 @@ const UserActionButton = () => {
 const styles = StyleSheet.create({
     buttonContainer: {
         flex: 1,
-        alignContent: 'center',
-        alignItems: 'stretch',
         margin: 5,
-        backgroundColor: "white",
     },
 });
+
+UserActionButton.propTypes = {
+    buttonText: PropTypes.string,
+    clickAction: PropTypes.func
+}
 
 export default UserActionButton

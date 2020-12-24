@@ -1,56 +1,56 @@
 const EasyDifficultyPegColor = [
-    'RED',
-    'YELLOW',
-    'BLUE',
-    'GREEN',
+    "red",
+    "yellow",
+    "blue",
+    "green",
 ]
 
 const NormalDifficultyPegColor = [
-    'RED',
-    'YELLOW',
-    'BLUE',
-    'GREEN',
-    'BLACK',
-    'WHITE'
+    "red",
+    "yellow",
+    "blue",
+    "green",
+    "black",
+    "white"
 ]
 
 const HardDifficultyPegColor = [
-    'RED',
-    'YELLOW',
-    'BLUE',
-    'GREEN',
-    'BLACK',
-    'WHITE',
-    'PURPLE',
-    'ORANGE',
+    "red",
+    "yellow",
+    "blue",
+    "green",
+    "black",
+    "white",
+    "purple",
+    "orange",
 ]
 
 const NightmareDifficultyPegColor = [
-    'RED',
-    'YELLOW',
-    'BLUE',
-    'GREEN',
-    'BLACK',
-    'WHITE',
-    'PURPLE',
-    'ORANGE',
-    'DARKSLATEGREY',
-    'BROWN',
+    "red",
+    "yellow",
+    "blue",
+    "green",
+    "black",
+    "white",
+    "purple",
+    "orange",
+    "darkslategrey",
+    "brown",
 ]
 
 const ImpossibleDifficultyPegColor = [
-    'RED',
-    'YELLOW',
-    'BLUE',
-    'GREEN',
-    'BLACK',
-    'WHITE',
-    'PURPLE',
-    'ORANGE',
-    'DARKSLATEGREY',
-    'BROWN',
-    'GOLD',
-    'SILVER'
+    "red",
+    "yellow",
+    "blue",
+    "green",
+    "black",
+    "white",
+    "purple",
+    "orange",
+    "darkslategrey",
+    "brown",
+    "gold",
+    "silver"
 ]
 
 export { EasyDifficultyPegColor, NormalDifficultyPegColor, HardDifficultyPegColor, NightmareDifficultyPegColor, ImpossibleDifficultyPegColor }

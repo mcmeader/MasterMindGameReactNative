@@ -4,26 +4,42 @@ const checkGuess = (guess, solution) => {
     let checkedPegs = new Array(guess.length).fill(GuessPegColor.EMPTY)
     let checkedGuess = [...guess]
 
-    for (let i = 0; i < guess.length; i++) {
-        if (guess[i] === solution[i]) {
-            checkedGuess[i] = "-"
-            checkedPegs[i] = GuessPegColor.BLACK
+    guess.forEach((data, index) => {
+        if (data === solution[index]) {
+            checkedGuess[index] = "-"
+            checkedPegs[index] = GuessPegColor.BLACK
         }
-    }
+    })
 
-    for (let i = 0; i < checkedGuess.length; i++) {
-        if (solution.some(value => value === checkedGuess[i])) {
-            checkedGuess[i] = "-"
-            checkedPegs[i] = GuessPegColor.WHITE
+    let whiteGuess = [...solution]
+    checkedPegs.forEach((data, index) => {
+        if (data === GuessPegColor.BLACK) {
+            whiteGuess[index] = "-"
         }
-    }
+    })
+
+    checkedGuess.forEach((data, index) => {
+        if (data !== '-') {
+            let indexWhiteGuess = whiteGuess.indexOf(data)
+            if (indexWhiteGuess != -1) {
+                checkedPegs[index] = GuessPegColor.WHITE;
+                whiteGuess[indexWhiteGuess] = "-"
+            }
+        }
+    })
 
     if (checkedPegs.some(value => value === GuessPegColor.EMPTY) || checkedPegs.some(value => value === GuessPegColor.WHITE)) {
         checkedPegs.sort()
         return checkedPegs
     } else {
-        return null
+        return new Array(guess.length).fill(GuessPegColor.BLACK)
     }
 }
 
-export { checkGuess }
+const generateSolution = (difficulty) => {
+    let pegs = new Array(difficulty.numberOfPegs).fill("")
+    let randomPegs = pegs.map(() => difficulty.colors[Math.floor(Math.random() * difficulty.colors.length)])
+    return randomPegs
+}
+
+export { checkGuess, generateSolution }
