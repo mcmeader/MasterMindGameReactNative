@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types'
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Button } from 'react-native';
 
 const TitleScreenOptionButton = (props) => {
     return (
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
         alignContent: 'center',
         alignItems: 'center',
         margin: 5,
-        backgroundColor: "red",
+        backgroundColor: "lightblue",
     },
     text: {
         flex: 1,

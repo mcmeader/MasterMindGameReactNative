@@ -2,31 +2,31 @@ import { EasyDifficultyPegColor, HardDifficultyPegColor, ImpossibleDifficultyPeg
 
 const Difficulties = {
     "easy": {
-        "difficulty": "easy",
+        "difficulty": "Easy",
         "numberOfPegs": 3,
         "colors": EasyDifficultyPegColor,
         "maxGuesses": 0,
     },
     "normal": {
-        "difficulty": "normal",
+        "difficulty": "Normal",
         "numberOfPegs": 4,
         "colors": NormalDifficultyPegColor,
         "maxGuesses": 10,
     },
     "hard": {
-        "difficulty": "hard",
+        "difficulty": "Hard",
         "numberOfPegs": 5,
         "colors": HardDifficultyPegColor,
         "maxGuesses": 12,
     },
     "nightmare": {
-        "difficulty": "nightmare",
+        "difficulty": "Nightmare",
         "numberOfPegs": 6,
         "colors": NightmareDifficultyPegColor,
         "maxGuesses": 10,
     },
     "impossible": {
-        "difficulty": "impossible",
+        "difficulty": "Impossible",
         "numberOfPegs": 8,
         "colors": ImpossibleDifficultyPegColor,
         "maxGuesses": 8,

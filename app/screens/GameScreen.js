@@ -3,12 +3,13 @@ import {
     StyleSheet,
     View,
     Alert,
+    Text
 } from 'react-native';
-import MenuButton from '../components/GameScreen/Buttons/MenuButton';
 import UserActionButton from '../components/GameScreen/Buttons/UserActionButton';
 import FlatListContainer from '../components/GameScreen/Containers/FlatListContainer';
 import PoolContainer from '../components/GameScreen/Containers/PoolContainer';
 import SolutionContainer from '../components/GameScreen/Containers/SolutionContainer';
+import { Difficulties } from '../constants/enums/Difficulties';
 import GuessPegColor from '../constants/enums/GuessPegColor';
 import { checkGuess, generateSolution } from '../handlers/GameLogicHandler';
 
@@ -26,10 +27,6 @@ const GameScreen = ({ route, navigation }) => {
         answers: new Array(difficulty.numberOfPegs).fill(GuessPegColor.EMPTY),
         guesses: new Array(difficulty.numberOfPegs).fill(GuessPegColor.EMPTY)
     }])
-
-    let goToTitle = () => {
-        navigation.navigate("Title Screen")
-    }
 
     let createWinAlert = () => {
         Alert.alert(
@@ -123,7 +120,10 @@ const GameScreen = ({ route, navigation }) => {
     return (
         <View style={styles.screen}>
             <View style={styles.topSection}>
-                <MenuButton clickAction={goToTitle} />
+                <View style={styles.roundsLeftContainer}>
+                    <Text>Rounds Left:</Text>
+                    <Text>{difficulty != Difficulties.easy ? difficulty.maxGuesses - currentRound : '-'}</Text>
+                </View>
                 <SolutionContainer sol={solution} hidden={solutionHidden} />
             </View>
 
@@ -170,6 +170,13 @@ const styles = StyleSheet.create({
         flex: 1.25,
         flexDirection: 'row',
         backgroundColor: '#408000',
+    },
+    roundsLeftContainer: {
+        flex: 1.5,
+        flexDirection: 'column',
+        alignItems: 'center',
+        marginTop: 12,
+        marginLeft: 5,
     }
 });
 

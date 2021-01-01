@@ -2,26 +2,34 @@ import React, { useState } from 'react';
 import {
     StyleSheet,
     View,
-    Text
+    Text,
+    Alert
 } from 'react-native';
+import DifficultySelector from '../components/TitleScreen/DifficultySelector.js';
 
 import TitleScreenOptionButton from '../components/TitleScreen/TitleScreenOptionButton.js'
 import { getDifficulties } from '../constants/enums/Difficulties.js';
 
 const TitleScreen = ({ navigation }) => {
     let difficulties = getDifficulties()
-    const [gameDifficultyIndex, setgameDifficultyIndex] = useState(1)
-
-    let updateDifficulty = () => {
-        if (gameDifficultyIndex === difficulties.length - 1) {
-            setgameDifficultyIndex(0)
-        } else {
-            setgameDifficultyIndex(gameDifficultyIndex + 1)
-        }
-    }
+    const [gameDifficultyIndex, setGameDifficultyIndex] = useState()
 
     let startGame = () => {
-        navigation.push("Game Screen", { difficulty: difficulties[gameDifficultyIndex], navigate: navigation })
+        if (gameDifficultyIndex != undefined) {
+            navigation.push("Game Screen", { difficulty: difficulties[gameDifficultyIndex], navigate: navigation })
+        } else {
+            Alert.alert(
+                "Error!",
+                "Please select a difficulty",
+                [
+                    {
+                        text: "Ok",
+                        style: "cancel"
+                    }
+                ],
+                { cancelable: true }
+            );
+        }
     }
 
     let placeholder = () => { }
@@ -33,8 +41,9 @@ const TitleScreen = ({ navigation }) => {
                     Mastermind
                 </Text>
                 <TitleScreenOptionButton text="Start Game" buttonFunction={startGame} />
-                <TitleScreenOptionButton text={'Difficulty: ' + difficulties[gameDifficultyIndex].difficulty}
-                    buttonFunction={updateDifficulty} />
+                <DifficultySelector
+                    difficultyIndex={gameDifficultyIndex}
+                    setDifficulty={setGameDifficultyIndex} />
                 <TitleScreenOptionButton text="High Score" buttonFunction={placeholder} />
                 <TitleScreenOptionButton text="Settings" buttonFunction={placeholder} />
             </View>
