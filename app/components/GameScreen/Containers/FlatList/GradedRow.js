@@ -1,14 +1,13 @@
-import React, { useEffect } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React from 'react';
+import { View, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
-import GuessPeg from '../../Pegs/GuessPeg';
-
+import StaticColorPeg from '../../Pegs/StaticColorPeg';
 
 const GradedRow = (props) => {
     return (
         <View style={styles.container}>
             {props.data.map((value, index) =>
-                <GuessPeg key={index} pegColor={value} />)}
+                <StaticColorPeg key={index} pegColor={value} difficulty={props.difficulty} />)}
         </View>
     );
 }
@@ -24,7 +23,8 @@ const styles = StyleSheet.create({
 });
 
 GradedRow.propTypes = {
-    data: PropTypes.arrayOf(GuessPeg),
+    data: PropTypes.arrayOf(StaticColorPeg),
+    difficulty: PropTypes.object,
 }
 
 export default GradedRow

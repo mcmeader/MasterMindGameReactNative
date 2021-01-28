@@ -3,7 +3,8 @@ import {
     StyleSheet,
     View,
     Text,
-    Alert
+    Alert,
+    Platform
 } from 'react-native';
 import DifficultySelector from '../components/TitleScreen/DifficultySelector.js';
 
@@ -32,7 +33,18 @@ const TitleScreen = ({ navigation }) => {
         }
     }
 
-    let placeholder = () => { }
+    let placeholder = () =>
+        Alert.alert(
+            "Oops!",
+            "Don't Mind Me!  This Button is Still Under Construction!",
+            [
+                {
+                    text: "Ok",
+                    style: "cancel"
+                }
+            ],
+            { cancelable: true }
+        );
 
     return (
         <View style={styles.screen}>
@@ -63,7 +75,8 @@ const styles = StyleSheet.create({
     },
     mastermindLogo: {
         flex: 1,
-        fontSize: 30,
+        marginTop: Platform.isPad ? 90 : 0,
+        fontSize: Platform.isPad ? 60 : 30,
         textAlign: 'center',
         textAlignVertical: 'center',
     }

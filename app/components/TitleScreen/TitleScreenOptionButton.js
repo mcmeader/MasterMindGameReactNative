@@ -1,32 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types'
-import { View, Text, StyleSheet, TouchableOpacity, Button } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Button, Platform } from 'react-native';
 
 const TitleScreenOptionButton = (props) => {
     return (
-        <View style={styles.buttonContainer}>
-            <TouchableOpacity onPress={() => props.buttonFunction()}>
-                <Text style={styles.text}>
-                    {props.text}
-                </Text>
-            </TouchableOpacity>
-        </View>
+        <TouchableOpacity style={styles.buttonContainer} onPress={() => props.buttonFunction()}>
+            <Text style={styles.text}>
+                {props.text}
+            </Text>
+        </TouchableOpacity>
     );
 }
-
 const styles = StyleSheet.create({
     buttonContainer: {
         flex: 1,
-        alignContent: 'center',
-        alignItems: 'center',
-        margin: 5,
+        justifyContent: 'center',
+        margin: 50,
         backgroundColor: "lightblue",
     },
     text: {
-        flex: 1,
         textAlign: 'center',
-        textAlignVertical: 'center',
-        fontSize: 20,
+        fontSize: Platform.isPad ? 50 : 20
     }
 });
 

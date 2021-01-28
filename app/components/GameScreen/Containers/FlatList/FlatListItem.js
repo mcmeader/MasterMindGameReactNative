@@ -1,17 +1,15 @@
-import React, { useEffect } from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import React from 'react';
+import { View, StyleSheet, Text, Platform } from 'react-native';
 import PropTypes from 'prop-types';
 import GradedRow from '../FlatList/GradedRow';
 import GuessRow from '../FlatList/GuessRow';
-import GuessPeg from '../../Pegs/GuessPeg';
-import ColorPeg from '../../Pegs/ColorPeg';
 
 const FlatListItem = (props) => {
     return (
         <View style={styles.container}>
             <Text style={styles.round}>{props.rowNumber}</Text>
-            <GradedRow data={props.gradedRow} />
-            <GuessRow guessRow={props.guessRow} />
+            <GradedRow data={props.gradedRow} difficulty={props.difficulty} />
+            <GuessRow guessRow={props.guessRow} difficulty={props.difficulty} />
         </View>
     );
 }
@@ -20,20 +18,25 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'row',
-        height: 75,
+        height: Platform.isPad ? 150 : 75,
         borderWidth: 3,
         borderColor: 'black',
         marginBottom: 5,
     },
     round: {
-        textAlignVertical: 'center',
+        flex: 0.1,
+        alignSelf: 'center',
+        textAlign: 'center',
+        backgroundColor: 'red',
+        fontSize: Platform.isPad ? 30 : 12,
     }
 });
 
 FlatListItem.propTypes = {
     rowNumber: PropTypes.number,
     gradedRow: PropTypes.arrayOf(String),
-    guessRow: PropTypes.arrayOf(String)
+    guessRow: PropTypes.arrayOf(String),
+    difficulty: PropTypes.object
 }
 
 export default FlatListItem

@@ -1,46 +1,84 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet, Platform } from 'react-native';
+import { Difficulties } from '../../../constants/enums/Difficulties';
 
 const StaticColorPeg = (props) => {
+    let getTextStyle = () => {
+        switch (props.difficulty) {
+            case Difficulties.easy:
+                return styles.emptyEasy
+            case Difficulties.normal:
+                return styles.emptyNormal
+            case Difficulties.hard:
+                return styles.emptyHard
+            case Difficulties.nightmare:
+                return styles.emptyNightmare
+            case Difficulties.impossible:
+                return styles.emptyImpossible
+        }
+    }
+
     return (
         <View style={styles.buttonContainer}>
             {props.pegColor === 'zz' ?
-                <Text style={styles.emptyButtonContainer}>X</Text>
+                <View style={getTextStyle()}></View>
                 :
-                <View style={{
-                    flex: 1, backgroundColor: props.pegColor === 'zz' ? 'yellow' : props.pegColor, borderRadius: 100,
-                    borderColor: 'black', borderWidth: 2
-                }}>
-                </View>
+                <View style={[getTextStyle(), {
+                    backgroundColor: props.pegColor === 'zz' ? 'yellow' : props.pegColor
+                }]} />
             }
         </View>
-    );
-}
+    )
+};
+
 
 const styles = StyleSheet.create({
     buttonContainer: {
         flex: 1,
-        margin: 5,
-        maxHeight: 45,
-        maxWidth: 45,
+        margin: 1,
         aspectRatio: 1 / 1,
     },
-    emptyButtonContainer: {
+    emptyEasy: {
         flex: 1,
-        color: 'black',
-        fontSize: 22,
-        borderWidth: 2,
-        borderRadius: 100,
-        textAlignVertical: 'center',
+        borderWidth: 3,
         borderColor: 'black',
-        textAlign: 'center',
-        justifyContent: 'center',
-    }
+        margin: 40,
+        borderRadius: Platform.isPad ? 50 : 100,
+    },
+    emptyNormal: {
+        flex: 1,
+        borderWidth: 3,
+        borderColor: 'black',
+        margin: 20,
+        borderRadius: Platform.isPad ? 50 : 100,
+    },
+    emptyHard: {
+        flex: 1,
+        borderWidth: 3,
+        borderColor: 'black',
+        margin: 15,
+        borderRadius: Platform.isPad ? 40 : 100,
+    },
+    emptyNightmare: {
+        flex: 1,
+        borderWidth: 3,
+        borderColor: 'black',
+        margin: 5,
+        borderRadius: Platform.isPad ? 40 : 100,
+
+    },
+    emptyImpossible: {
+        flex: 1,
+        borderWidth: 3,
+        borderColor: 'black',
+        borderRadius: Platform.isPad ? 30 : 100,
+    },
 });
 
 StaticColorPeg.props = {
     pegColor: PropTypes.string,
+    difficulty: PropTypes.object,
 }
 
 export default StaticColorPeg

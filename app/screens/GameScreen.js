@@ -3,7 +3,8 @@ import {
     StyleSheet,
     View,
     Alert,
-    Text
+    Text,
+    Platform
 } from 'react-native';
 import UserActionButton from '../components/GameScreen/Buttons/UserActionButton';
 import FlatListContainer from '../components/GameScreen/Containers/FlatListContainer';
@@ -121,18 +122,18 @@ const GameScreen = ({ route, navigation }) => {
         <View style={styles.screen}>
             <View style={styles.topSection}>
                 <View style={styles.roundsLeftContainer}>
-                    <Text>Rounds Left:</Text>
-                    <Text>{difficulty != Difficulties.easy ? difficulty.maxGuesses - currentRound : '-'}</Text>
+                    <Text style={styles.roundsLeft}>Rounds Left:</Text>
+                    <Text style={styles.roundsLeftNumber}>{difficulty != Difficulties.easy ? difficulty.maxGuesses - currentRound : '-'}</Text>
                 </View>
-                <SolutionContainer sol={solution} hidden={solutionHidden} />
+                <SolutionContainer sol={solution} hidden={solutionHidden} difficulty={difficulty} />
             </View>
 
             <View style={styles.midSection}>
-                <FlatListContainer data={roundData} />
+                <FlatListContainer data={roundData} difficulty={difficulty} />
             </View>
 
             <View style={styles.bottomSection}>
-                <PoolContainer colors={difficulty.colors} selectColor={selectColor} selectedIndex={selectedIndex} />
+                <PoolContainer colors={difficulty.colors} selectColor={selectColor} selectedIndex={selectedIndex} difficulty={difficulty} />
                 <View style={styles.buttonBar}>
                     <UserActionButton id="resetGuess" buttonText='Reset' clickAction={resetGuess} />
                     <UserActionButton id="submitGuess" buttonText="Submit" clickAction={submitGuess} />
@@ -148,27 +149,28 @@ const styles = StyleSheet.create({
         alignContent: 'center',
     },
     topSection: {
-        flex: 0.6,
+        flex: Platform.isPad ? 0.8 : 0.6,
         flexDirection: 'row',
         justifyContent: 'center',
         backgroundColor: '#408000',
     },
     midSection: {
-        flex: 3.8,
+        flex: Platform.isPad ? 3.4 : 3.8,
         flexDirection: 'row',
         alignContent: 'center',
         backgroundColor: '#d3d3d3',
     },
     bottomSection: {
-        flex: 1.25,
+        flex: Platform.isPad ? 1.4 : 1.25,
         alignContent: 'center',
         borderColor: 'black',
         borderTopWidth: 4,
         backgroundColor: '#5A5B5C',
     },
     buttonBar: {
-        flex: 1.25,
+        flex: Platform.isPad ? 0.8 : 1.25,
         flexDirection: 'row',
+        justifyContent: 'center',
         backgroundColor: '#408000',
     },
     roundsLeftContainer: {
@@ -177,6 +179,14 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginTop: 12,
         marginLeft: 5,
+        fontSize: Platform.isPad ? 30 : 12,
+    },
+    roundsLeft: {
+        fontSize: Platform.isPad ? 40 : 12,
+        marginBottom: 20,
+    },
+    roundsLeftNumber: {
+        fontSize: Platform.isPad ? 60 : 12,
     }
 });
 

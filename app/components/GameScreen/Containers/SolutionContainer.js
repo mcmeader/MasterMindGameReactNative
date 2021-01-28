@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { View, StyleSheet } from 'react-native';
 import StaticColorPeg from '../Pegs/StaticColorPeg';
@@ -6,29 +6,29 @@ import StaticColorPeg from '../Pegs/StaticColorPeg';
 const SolutionContainer = (props) => {
     return (
         <View style={styles.container}>
-            {props.hidden ? <View style={{ flex: 1, alignSelf: 'stretch', backgroundColor: "black" }} /> :
-                props.sol.map((peg, index) => <StaticColorPeg key={index} pegColor={peg} />)}
+            {props.hidden ? <View style={styles.hiddenMask} /> :
+                props.sol.map((peg, index) => <StaticColorPeg key={index} pegColor={peg} difficulty={props.difficulty} />)}
         </View>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 5,
-        margin: 5,
+        flex: 2.5,
         flexDirection: 'row',
-        justifyContent: 'space-around',
         alignItems: 'center',
+        borderWidth: 1,
+        borderColor: 'black',
     },
     hiddenMask: {
-        flex: 1,
-        backgroundColor: 'black',
+        flex: 1, alignSelf: 'stretch', backgroundColor: "black"
     }
 });
 
 SolutionContainer.propTypes = {
     sol: PropTypes.arrayOf(String),
-    hidden: PropTypes.bool
+    hidden: PropTypes.bool,
+    difficulty: PropTypes.object
 }
 
 export default SolutionContainer

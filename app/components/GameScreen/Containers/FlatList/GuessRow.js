@@ -7,7 +7,7 @@ const GuessRow = (props) => {
     return (
         <View style={styles.container}>
             {props.guessRow.map((value, index) =>
-                <StaticColorPeg key={index} pegColor={value} />)}
+                <StaticColorPeg key={index} pegColor={value} difficulty={props.difficulty} />)}
         </View>
     );
 }
@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
 
 GuessRow.propTypes = {
     guessRow: PropTypes.arrayOf(String),
+    difficulty: PropTypes.object,
 }
 
 export default GuessRow

@@ -11,7 +11,7 @@ const FlatListContainer = (props) => {
                 data={props.data}
                 keyExtractor={(index) => index.round}
                 renderItem={({ item }) =>
-                    <FlatListItem key={item.rowNumber} rowNumber={item.round} gradedRow={item.answers} guessRow={item.guesses} />
+                    <FlatListItem key={item.rowNumber} rowNumber={item.round} gradedRow={item.answers} guessRow={item.guesses} difficulty={props.difficulty} />
                 } />
         </View>
     );
@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
 
 FlatListContainer.propTypes = {
     data: PropTypes.arrayOf(Object),
+    difficulty: PropTypes.object,
 }
 
 export default FlatListContainer
