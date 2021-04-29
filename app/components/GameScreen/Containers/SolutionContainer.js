@@ -14,7 +14,7 @@ const SolutionContainer = (props) => {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 2.5,
+        flex: 2.25,
         flexDirection: 'row',
         alignItems: 'center',
         borderWidth: 1,

@@ -10,7 +10,7 @@ export const App = () => {
 
     return (
         <NavigationContainer>
-            <Stack.Navigator>
+            <Stack.Navigator headerMode="none">
                 <Stack.Screen
                     name="Title Screen"
                     component={TitleScreen}

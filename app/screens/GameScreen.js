@@ -4,8 +4,10 @@ import {
     View,
     Alert,
     Text,
-    Platform
+    Platform,
+    SafeAreaView
 } from 'react-native';
+import BackButton from '../components/GameScreen/Buttons/BackButton';
 import UserActionButton from '../components/GameScreen/Buttons/UserActionButton';
 import FlatListContainer from '../components/GameScreen/Containers/FlatListContainer';
 import PoolContainer from '../components/GameScreen/Containers/PoolContainer';
@@ -118,12 +120,19 @@ const GameScreen = ({ route, navigation }) => {
         }
     }
 
+    let goBack = () => {
+        navigation.push("Title Screen")
+    }
+
     return (
-        <View style={styles.screen}>
+        <SafeAreaView style={styles.screen}>
             <View style={styles.topSection}>
-                <View style={styles.roundsLeftContainer}>
-                    <Text style={styles.roundsLeft}>Rounds Left:</Text>
-                    <Text style={styles.roundsLeftNumber}>{difficulty != Difficulties.easy ? difficulty.maxGuesses - currentRound : '-'}</Text>
+                <View style={styles.topSectionContainer}>
+                    <BackButton goBack={goBack} />
+                    <View style={styles.roundsLeftContainer}>
+                        <Text style={styles.roundsLeft}>Rounds Left:</Text>
+                        <Text style={styles.roundsLeftNumber}>{difficulty != Difficulties.easy ? difficulty.maxGuesses - currentRound : '-'}</Text>
+                    </View>
                 </View>
                 <SolutionContainer sol={solution} hidden={solutionHidden} difficulty={difficulty} />
             </View>
@@ -139,7 +148,7 @@ const GameScreen = ({ route, navigation }) => {
                     <UserActionButton id="submitGuess" buttonText="Submit" clickAction={submitGuess} />
                 </View>
             </View>
-        </View>
+        </SafeAreaView>
     );
 }
 
@@ -174,12 +183,16 @@ const styles = StyleSheet.create({
         backgroundColor: '#408000',
     },
     roundsLeftContainer: {
-        flex: 1.5,
+        flex: 1,
         flexDirection: 'column',
         alignItems: 'center',
         marginTop: 12,
-        marginLeft: 5,
         fontSize: Platform.isPad ? 30 : 12,
+    },
+    topSectionContainer: {
+        flex: 1.75,
+        flexDirection: 'row',
+        justifyContent: 'space-around'
     },
     roundsLeft: {
         fontSize: Platform.isPad ? 40 : 12,
