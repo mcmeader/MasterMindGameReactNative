@@ -21,56 +21,60 @@ const ColorPeg = (props) => {
     }
 
     return (
-        <TouchableHighlight style={styles.buttonContainer} onPress={() => props.onSelect(props.pegColor, props.index)}>
+        <TouchableHighlight style={styles.buttonContainer} underlayColor="#5A5B5C" onPress={() => props.onSelect(props.pegColor, props.index)}>
             <View style={[getTextStyle(), {
                 backgroundColor: props.pegColor,
                 borderColor: props.selected ? "gold" : "black",
                 borderWidth: props.selected ? 5 : 3
-            }]}>
-            </View>
+            }]} />
         </TouchableHighlight>
     );
 }
 
 const styles = StyleSheet.create({
     buttonContainer: {
-        flex: 1,
-        padding: 0,
-        justifyContent: 'center',
+        paddingBottom: Platform.isPad ? 0 : 20,
     },
     emptyEasy: {
-        height: 160,
+        height: Platform.isPad ? 160 : 80,
         aspectRatio: 1 / 1,
         borderWidth: 3,
-        margin: 40,
+        margin: Platform.isPad ? 40 : 0,
+        marginTop: Platform.isPad ? 40 : 20,
+        paddingBottom: 0,
         borderRadius: Platform.isPad ? 80 : 100,
     },
     emptyNormal: {
-        height: 140,
+        height: Platform.isPad ? 140 : 65,
         aspectRatio: 1 / 1,
         borderWidth: 3,
-        margin: 40,
+        marginBottom: Platform.isPad ? 40 : -20,
+        margin: Platform.isPad ? 40 : 0,
+        marginRight: Platform.isPad ? 40 : 5,
         borderRadius: Platform.isPad ? 80 : 100,
     },
     emptyHard: {
-        height: 100,
+        height: Platform.isPad ? 100 : 65,
         aspectRatio: 1 / 1,
         borderWidth: 3,
-        margin: 40,
+        margin: Platform.isPad ? 40 : 0,
+        marginBottom: Platform.isPad ? 40 : -17,
+        marginTop: Platform.isPad ? 40 : 0,
         borderRadius: Platform.isPad ? 80 : 100,
     },
     emptyNightmare: {
-        height: 90,
+        width: Platform.isPad ? 90 : 60,
         aspectRatio: 1 / 1,
         borderWidth: 3,
-        margin: 40,
+        margin: Platform.isPad ? 40 : 0,
+        marginBottom: Platform.isPad ? 40 : -10,
         borderRadius: Platform.isPad ? 80 : 100,
     },
     emptyImpossible: {
-        height: 70,
+        height: Platform.isPad ? 70 : 50,
         aspectRatio: 1 / 1,
         borderWidth: 3,
-        margin: 40,
+        margin: Platform.isPad ? 40 : 0,
         borderRadius: Platform.isPad ? 80 : 100,
     },
 });

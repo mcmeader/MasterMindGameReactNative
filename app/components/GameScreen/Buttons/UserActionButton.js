@@ -16,14 +16,14 @@ const UserActionButton = (props) => {
 const styles = StyleSheet.create({
     buttonContainer: {
         flex: 1,
-        width: 550,
+        width: Platform.isPad ? 550 : 200,
         borderWidth: 2,
         borderColor: 'black',
         justifyContent: 'center',
     },
     text: {
         textAlign: 'center',
-        fontSize: Platform.isPad ? 50 : 20
+        fontSize: Platform.isPad ? 50 : 15
     }
 });
 

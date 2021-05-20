@@ -24,11 +24,10 @@ const styles = StyleSheet.create({
         marginBottom: 5,
     },
     round: {
-        flex: 0.1,
+        flex: 0.15,
         alignSelf: 'center',
         textAlign: 'center',
-        backgroundColor: 'red',
-        fontSize: Platform.isPad ? 30 : 12,
+        fontSize: Platform.isPad ? 40 : 15,
     }
 });
 

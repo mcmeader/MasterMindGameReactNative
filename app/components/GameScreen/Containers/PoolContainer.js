@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Platform } from 'react-native';
 import PropTypes from 'prop-types';
 import ColorPeg from '../Pegs/ColorPeg';
 
@@ -17,7 +17,9 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'row',
-        justifyContent: 'space-around',
+        flexWrap: 'wrap',
+        justifyContent: 'space-evenly',
+        padding: Platform.isPad ? 0 : 10,
     },
 });
 

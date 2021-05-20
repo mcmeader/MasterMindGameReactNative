@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     screen: {
         flex: 1,
         alignContent: 'center',
-        margin: 5,
+        margin: Platform.isPad ? 5 : 10,
     },
     content: {
         flex: 1,
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
     },
     mastermindLogo: {
         flex: 1,
-        marginTop: Platform.isPad ? 90 : 0,
+        marginTop: Platform.isPad ? 90 : 60,
         fontSize: Platform.isPad ? 60 : 30,
         textAlign: 'center',
         textAlignVertical: 'center',

@@ -158,26 +158,28 @@ const styles = StyleSheet.create({
         alignContent: 'center',
     },
     topSection: {
-        flex: Platform.isPad ? 0.8 : 0.6,
+        marginTop: Platform.isPad ? 0 : 20,
+        flex: Platform.isPad ? 0.8 : 0.7,
         flexDirection: 'row',
         justifyContent: 'center',
         backgroundColor: '#408000',
     },
     midSection: {
-        flex: Platform.isPad ? 3.4 : 3.8,
+        flex: Platform.isPad ? 3.4 : 3.85,
         flexDirection: 'row',
         alignContent: 'center',
         backgroundColor: '#d3d3d3',
     },
     bottomSection: {
-        flex: Platform.isPad ? 1.4 : 1.25,
+        flex: Platform.isPad ? 1.4 : 2,
+        flexWrap: 'nowrap',
         alignContent: 'center',
         borderColor: 'black',
         borderTopWidth: 4,
         backgroundColor: '#5A5B5C',
     },
     buttonBar: {
-        flex: Platform.isPad ? 0.8 : 1.25,
+        flex: Platform.isPad ? 0.8 : 0.5,
         flexDirection: 'row',
         justifyContent: 'center',
         backgroundColor: '#408000',
@@ -196,7 +198,7 @@ const styles = StyleSheet.create({
     },
     roundsLeft: {
         fontSize: Platform.isPad ? 40 : 12,
-        marginBottom: 20,
+        marginBottom: Platform.isPad ? 20 : 0,
     },
     roundsLeftNumber: {
         fontSize: Platform.isPad ? 60 : 12,

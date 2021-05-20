@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StyleSheet, Image } from 'react-native';
+import { StyleSheet, Image, Platform, } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const BackButton = (props) => {
@@ -13,8 +13,8 @@ const BackButton = (props) => {
 
 const styles = StyleSheet.create({
     image: {
-        width: 75,
-        height: 75,
+        width: Platform.isPad ? 75 : 35,
+        height: Platform.isPad ? 75 : 35,
         alignSelf: 'center',
         resizeMode: 'contain',
         backgroundColor: '#408000',
@@ -24,8 +24,8 @@ const styles = StyleSheet.create({
     buttonContainer: {
         flex: 0.9,
         justifyContent: 'center',
-        height: 500,
-        marginStart: 25
+        height: Platform.isPad ? 500 : 30,
+        marginStart: Platform.isPad ? 25 : 10,
     },
 });
 
